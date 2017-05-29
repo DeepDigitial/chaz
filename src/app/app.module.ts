@@ -28,6 +28,7 @@ import { SupportPage } from '../pages/support/support';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import {ZillowServiceModule} from "../modules/zillow-service/zillow-service.module";
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { UserData } from '../providers/user-data';
   imports: [
     BrowserModule,
     HttpModule,
+    ZillowServiceModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
