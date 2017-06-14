@@ -8,7 +8,6 @@ import { AlertController, App, FabContainer, ItemSliding, List, ModalController,
 */
 // import moment from 'moment';
 
-import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 
 import { SessionDetailPage } from '../session-detail/session-detail';
@@ -41,7 +40,6 @@ export class SchedulePage {
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     public toastCtrl: ToastController,
-    public confData: ConferenceData,
     public user: UserData,
   ) {}
 
@@ -54,10 +52,6 @@ export class SchedulePage {
     // Close any open sliding items when the schedule updates
     this.scheduleList && this.scheduleList.closeSlidingItems();
 
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-    });
   }
 
   presentFilter() {
@@ -151,21 +145,21 @@ export class SchedulePage {
   }
 
   doRefresh(refresher: Refresher) {
-    this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
-      this.shownSessions = data.shownSessions;
-      this.groups = data.groups;
-
-      // simulate a network request that would take longer
-      // than just pulling from out local json file
-      setTimeout(() => {
-        refresher.complete();
-
-        const toast = this.toastCtrl.create({
-          message: 'Sessions have been updated.',
-          duration: 3000
-        });
-        toast.present();
-      }, 1000);
-    });
+    // this.confData.getTimeline(this.dayIndex, this.queryText, this.excludeTracks, this.segment).subscribe((data: any) => {
+    //   this.shownSessions = data.shownSessions;
+    //   this.groups = data.groups;
+    //
+    //   // simulate a network request that would take longer
+    //   // than just pulling from out local json file
+    //   setTimeout(() => {
+    //     refresher.complete();
+    //
+    //     const toast = this.toastCtrl.create({
+    //       message: 'Sessions have been updated.',
+    //       duration: 3000
+    //     });
+    //     toast.present();
+    //   }, 1000);
+    // });
   }
 }

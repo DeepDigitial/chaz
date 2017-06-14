@@ -25,9 +25,16 @@ import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { SupportPage } from '../pages/support/support';
+import { ListingSearchPage } from '../pages/chaz/listing-search/listing-search';
 
-import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
+import { ListingProvider } from '../providers/listing-provider';
+
+import { ListingListItem } from '../pages/chaz/listing-list-item/listing-list-item';
+import {ListingDetailPage} from "../pages/chaz/listing-detail/listing-detail";
+import {ListingDetailFacts} from "../pages/chaz/listing-detail-facts/listing-detail-facts.component";
+import {ListingAddress} from "../pages/chaz/listing-address/listing-address.component";
+import {ListingMap} from "../pages/chaz/listing-map/listing-map";
 
 
 @NgModule({
@@ -46,7 +53,13 @@ import { UserData } from '../providers/user-data';
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    SupportPage
+    SupportPage,
+    ListingMap,
+    ListingSearchPage,
+    ListingListItem,
+    ListingDetailPage,
+    ListingDetailFacts,
+    ListingAddress
   ],
   imports: [
     BrowserModule,
@@ -65,7 +78,8 @@ import { UserData } from '../providers/user-data';
         { component: SupportPage, name: 'SupportPage', segment: 'support' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' }
+        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
+        { component: ListingSearchPage,name: 'ListingSearchPage', segment:'listingSearch'}
       ]
     }),
     IonicStorageModule.forRoot()
@@ -86,14 +100,16 @@ import { UserData } from '../providers/user-data';
     SpeakerListPage,
     TabsPage,
     TutorialPage,
-    SupportPage
+    SupportPage,
+    ListingSearchPage,
+    ListingDetailPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ConferenceData,
     UserData,
     InAppBrowser,
-    SplashScreen
+    SplashScreen,
+    ListingProvider
   ]
 })
 export class AppModule { }

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Listing Search</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="onSearchTextChanged($event)"></ion-searchbar>
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button value="list" (click)="onListSelected()">
+        List
+      </ion-segment-button>
+      <ion-segment-button value="map" (click)="onMapSelected()">
+        Map
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div *ngIf="displayingList">
+    <ion-list *ngFor="let l of displayedListings">
+      <listing-list-item [listing]='l'></listing-list-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="!displayingList">
+    <listing-map></listing-map>
+  </div>
+
+
+</ion-content>

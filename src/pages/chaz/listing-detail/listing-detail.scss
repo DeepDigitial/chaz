@@ -1,0 +1,21 @@
+.listing-image-slider {
+  height:200px;
+  background-color:gray;
+
+  ion-slides{
+    z-index:0;
+    position:relative;
+  }
+
+}
+
+.listing-price {
+  font-size:1.4em;
+  font-weight:bold;
+  margin-top:-25px;
+  z-index: 1;
+  position: relative;
+  color:white;
+  text-align: left;
+  width:100px;
+}

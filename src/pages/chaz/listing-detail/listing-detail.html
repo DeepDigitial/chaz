@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <ion-title>{{listing.name}}</ion-title>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- Listing images -->
+    <div class="listing-image-slider">
+        <ion-slides pager>
+
+            <ion-slide>
+                <img src="assets/img/listings/{{listing.name}}/001.jpg" class="slide-image"/>
+            </ion-slide>
+
+            <ion-slide>
+                <img src="assets/img/listings/{{listing.name}}/002.jpg" class="slide-image"/>
+            </ion-slide>
+
+            <ion-slide>
+                <img src="assets/img/listings/{{listing.name}}/003.jpg" class="slide-image"/>
+            </ion-slide>
+
+        </ion-slides>
+        <div class="listing-price">${{listing.price}}</div>
+    </div>
+
+
+    {{listing.description}}
+    <listing-address [listing]="listing"></listing-address>
+    <listing-detail-facts [listing]="listing"></listing-detail-facts>
+
+</ion-content>

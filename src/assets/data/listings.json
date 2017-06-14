@@ -1,0 +1,75 @@
+{
+  "listings":[
+    {
+      "id":"1",
+      "name":"Listing A",
+      "price":"512,999",
+      "description":"This is a sample description of Listing A",
+      "address":{
+        "street":"1010 Parker Ave SW",
+        "city":"Cullman",
+        "state":"AL",
+        "zipcode":"35055"
+      },
+      "facts":{
+        "numBeds":"2",
+        "numBaths":"8",
+        "sqft":"4444"
+      }
+    },
+    {
+      "id":"2",
+      "name":"Listing B",
+      "price":"92,000",
+      "description":"This is a sample description of Listing B"
+    },
+    {
+      "id":"3",
+      "name":"Listing C",
+      "price":"315,999",
+      "description":"This is a sample description of Listing C"
+    },
+    {
+      "id":"4",
+      "name":"Listing D",
+      "price":"315,999",
+      "description":"This is a sample description of Listing D"
+    },
+    {
+      "id":"5",
+      "name":"Listing E",
+      "price":"315,999",
+      "description":"This is a sample description of Listing E"
+    },
+    {
+      "id":"6",
+      "name":"Listing F",
+      "price":"315,999",
+      "description":"This is a sample description of Listing F"
+    },
+    {
+      "id":"7",
+      "name":"Listing G",
+      "price":"315,999",
+      "description":"This is a sample description of Listing G"
+    },
+    {
+      "id":"8",
+      "name":"Listing H",
+      "price":"315,999",
+      "description":"This is a sample description of Listing H"
+    },
+    {
+      "id":"9",
+      "name":"Listing I",
+      "price":"315,999",
+      "description":"This is a sample description of Listing I"
+    },
+    {
+      "id":"10",
+      "name":"Listing J",
+      "price":"315,999",
+      "description":"This is a sample description of Listing J"
+    }
+  ]
+}
