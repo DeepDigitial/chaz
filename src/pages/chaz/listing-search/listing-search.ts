@@ -1,9 +1,11 @@
 import {Component, ViewChild, ElementRef, OnInit} from '@angular/core';
 
-import { Platform } from 'ionic-angular';
+import {NavController, Platform, PopoverController} from 'ionic-angular';
 
 import { Listing } from '../models/listing';
 import { ListingProvider } from '../../../providers/listing-provider';
+
+import { ListingSearchFilterPage } from '../listing-search-filter-page/listing-search-filter-page.component';
 
 @Component({
   selector: 'page-listing-search',
@@ -16,7 +18,10 @@ export class ListingSearchPage implements OnInit{
 
   @ViewChild('listing') listingEle: ElementRef;
 
-  constructor(public platform: Platform,public listingProvider:ListingProvider) {
+  constructor(public platform: Platform,
+              public listingProvider:ListingProvider,
+              public navController:NavController,
+              public popoverController:PopoverController) {
 
   }
 
@@ -43,4 +48,8 @@ export class ListingSearchPage implements OnInit{
   onListSelected(){ this.displayingList = true; }
   onMapSelected() { this.displayingList = false; }
 
+  onFilterSelected(){
+    let popover = this.popoverController.create(ListingSearchFilterPage);
+    popover.present();
+  }
 }

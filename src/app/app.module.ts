@@ -35,6 +35,7 @@ import {ListingDetailPage} from "../pages/chaz/listing-detail/listing-detail";
 import {ListingDetailFacts} from "../pages/chaz/listing-detail-facts/listing-detail-facts.component";
 import {ListingAddress} from "../pages/chaz/listing-address/listing-address.component";
 import {ListingMap} from "../pages/chaz/listing-map/listing-map";
+import {ListingSearchFilterPage} from "../pages/chaz/listing-search-filter-page/listing-search-filter-page.component";
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {ListingMap} from "../pages/chaz/listing-map/listing-map";
     ListingListItem,
     ListingDetailPage,
     ListingDetailFacts,
-    ListingAddress
+    ListingAddress,
+    ListingSearchFilterPage
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import {ListingMap} from "../pages/chaz/listing-map/listing-map";
     TutorialPage,
     SupportPage,
     ListingSearchPage,
-    ListingDetailPage
+    ListingDetailPage,
+    ListingSearchFilterPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
