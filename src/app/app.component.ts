@@ -5,20 +5,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
-import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { SupportPage } from '../pages/support/support';
+// import { AboutPage } from '../pages/about/about';
+// import { AccountPage } from '../pages/account/account';
+// import { LoginPage } from '../pages/login/login';
+// import { MapPage } from '../pages/map/map';
+// import { SignupPage } from '../pages/signup/signup';
+// import { TabsPage } from '../pages/tabs/tabs';
+// import { TutorialPage } from '../pages/tutorial/tutorial';
+// import { SchedulePage } from '../pages/schedule/schedule';
+// import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+// import { SupportPage } from '../pages/support/support';
 import { ListingSearchPage } from '../pages/chaz/listing-search/listing-search';
+import {GeoDefinitionPage} from "../pages/chaz/agent/geoDefinitionPage/geo-definition.page";
 
-import { UserData } from '../providers/user-data';
+// import { UserData } from '../providers/user-data';
 import { ListingProvider } from '../providers/listing-provider';
+import {TabsPage} from "../pages/tabs/tabs";
 
 export interface PageInterface {
   title: string;
@@ -39,31 +41,43 @@ export class ConferenceApp {
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
+  agentMode:boolean = false;
+  isAgentClockedIn:boolean = false;
+
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
-    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' } ,
-  ];
-  loggedInPages: PageInterface[] = [
-    { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true },
+    // { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
+    // { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
+    // { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
+    // { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' } ,
     { title: 'Listings', name: 'ListingSearchPage', component: ListingSearchPage, icon: 'map'}
   ];
+
+  buyerPages: PageInterface[] = [
+
+  ];
+
+  agentPages: PageInterface[] = [
+
+  ];
+
+  loggedInPages: PageInterface[] = [
+    // { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
+    // { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
+    // { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true },
+    // { title: 'Listings', name: 'ListingSearchPage', component: ListingSearchPage, icon: 'map'}
+  ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
-    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
+    // { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
+    // { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
+    // { title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
   ];
   rootPage: any;
 
   constructor(
     public events: Events,
-    public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
     public storage: Storage,
@@ -72,26 +86,30 @@ export class ConferenceApp {
   ) {
 
     // Check if the user has already seen the tutorial
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = TutorialPage;
-        }
-        this.platformReady()
-      });
+    // this.storage.get('hasSeenTutorial')
+    //   .then((hasSeenTutorial) => {
+    //     if (hasSeenTutorial) {
+    //       this.rootPage = TabsPage;
+    //     } else {
+    //       this.rootPage = TutorialPage;
+    //     }
+    //
+    //   });
 
+    this.rootPage = ListingSearchPage;
+    //this.nav.setRoot(this.rootPage);
+
+    this.platformReady()
     // load the conference data
     listingData.load();
 
     // decide which menu items should be hidden by current login status stored in local storage
-    this.userData.hasLoggedIn().then((hasLoggedIn) => {
-      this.enableMenu(hasLoggedIn === true);
-    });
-    this.enableMenu(true);
+    // this.userData.hasLoggedIn().then((hasLoggedIn) => {
+    //   this.enableMenu(hasLoggedIn === true);
+    // });
+    // this.enableMenu(true);
 
-    this.listenToLoginEvents();
+    //this.listenToLoginEvents();
   }
 
   openPage(page: PageInterface) {
@@ -110,21 +128,21 @@ export class ConferenceApp {
     if (this.nav.getActiveChildNav() && page.index != undefined) {
       this.nav.getActiveChildNav().select(page.index);
     // Set the root of the nav with params if it's a tab index
-  } else {
+    } else {
       this.nav.setRoot(page.name, params).catch((err: any) => {
         console.log(`Didn't set nav root: ${err}`);
       });
     }
 
-    if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
-      this.userData.logout();
-    }
+    // if (page.logsOut === true) {
+    //   // Give the menu time to close before changing to logged out
+    //   //this.userData.logout();
+    // }
   }
 
-  openTutorial() {
-    this.nav.setRoot(TutorialPage);
-  }
+  // openTutorial() {
+  //   // this.nav.setRoot(TutorialPage);
+  // }
 
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
@@ -167,5 +185,38 @@ export class ConferenceApp {
       return 'primary';
     }
     return;
+  }
+
+  setAgentMode() {
+    console.log("Agent Mode has been activated.");
+    this.agentMode = true;
+
+  }
+
+  setUserMode(){
+    console.log("User Mode has been activated.");
+    this.agentMode = false;
+  }
+
+  toggleAgentClockedIn(){
+    this.isAgentClockedIn = !this.isAgentClockedIn;
+
+    if(this.isAgentClockedIn){
+      this.clockAgentIn();
+    }else{
+      this.clockAgentOut();
+    }
+
+  }
+
+  clockAgentIn(){
+    console.log("Agent has been clocked in.");
+
+    this.nav.setRoot(GeoDefinitionPage,{});
+  }
+
+  clockAgentOut(){
+    console.log("Agent has been clocked out.");
+    this.nav.setRoot(ListingSearchPage,{});
   }
 }

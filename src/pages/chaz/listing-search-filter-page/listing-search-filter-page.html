@@ -1,23 +1,247 @@
 <ion-content>
 
     <ion-scroll>
-        <ion-list>
-            <button ion-item>For Sale</button>
-            <button ion-item>Potential Listings</button>
-            <button ion-item>For Rent</button>
-            <button ion-item>Schools</button>
-            <button ion-item>Drive Time</button>
-            <button ion-item>Price</button>
-            <button ion-item>Bedrooms</button>
-            <button ion-item>Bathrooms</button>
-            <button ion-item>Single Story Homes</button>
-            <button ion-item>Max HOA</button>
-            <button ion-item>Sq Feet</button>
-            <button ion-item>Home Type</button>
-            <button ion-item>Lot Size</button>
-            <button ion-item>Year Built</button>
-        </ion-list>
+        <accordion>
+
+            <!-- For Sale Filters -->
+            <accordion-group title='For Sale' description="This is a sample description if we need one.">
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>By Agent</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>By Owner</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>New Construction</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Foreclosure</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Coming Soon</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Exclude Pending</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Show Only Price Reductions</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Show Only Open Houses</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Potential Listings Filters-->-
+            <accordion-group title='Potential Listings' description="Test">
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Foreclosed</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Pre-Foreclosure</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Make Me Move</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- For Rent Filters-->
+            <accordion-group title='For Rent'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Pets Allowed</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>On-Site Parking</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>In-Unit Laundry</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Income Restricted & Comm. Pillar</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Schools Filters-->
+            <accordion-group title='Schools'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Elementary School</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Middle School</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>High School</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>Private & Charter Schools</ion-label>
+                        <ion-checkbox color="dark" checked="false"></ion-checkbox>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Drive Time Filters-->
+            <accordion-group title='Drive Time'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Price Filters-->
+            <accordion-group title='Price'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Bedrooms Filters-->
+            <accordion-group title='Bedrooms'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Bathrooms Filters-->
+            <accordion-group title='Bathrooms'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Single Story Homes Filters-->
+            <accordion-group title='Single Story Homes'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Max HOA Filters-->
+            <accordion-group title='Max HOA'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Sq Feet Filters-->
+            <accordion-group title='Square Footage'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Home Type Filters-->
+            <accordion-group title='Home Type'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Lot Size Filters-->
+            <accordion-group title='Lot Size'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+            <!-- Year Built Filters-->
+            <accordion-group title='Year Built'>
+                <accordion-item>
+                    <ion-item>
+                        <ion-label>First Item</ion-label>
+                        <ion-radio checked="false" value="go"></ion-radio>
+                    </ion-item>
+                </accordion-item>
+            </accordion-group>
+
+
+        </accordion>
     </ion-scroll>
+
+
+
+
+
+
 
 
 </ion-content>

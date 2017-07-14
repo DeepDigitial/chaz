@@ -11,76 +11,45 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ConferenceApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { PopoverPage } from '../pages/about-popover/about-popover';
-import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
-import { SessionDetailPage } from '../pages/session-detail/session-detail';
-import { SignupPage } from '../pages/signup/signup';
-import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { TabsPage } from '../pages/tabs/tabs';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SupportPage } from '../pages/support/support';
 import { ListingSearchPage } from '../pages/chaz/listing-search/listing-search';
-
-import { UserData } from '../providers/user-data';
 import { ListingProvider } from '../providers/listing-provider';
-
 import { ListingListItem } from '../pages/chaz/listing-list-item/listing-list-item';
-import {ListingDetailPage} from "../pages/chaz/listing-detail/listing-detail";
-import {ListingDetailFacts} from "../pages/chaz/listing-detail-facts/listing-detail-facts.component";
-import {ListingAddress} from "../pages/chaz/listing-address/listing-address.component";
-import {ListingMap} from "../pages/chaz/listing-map/listing-map";
-import {ListingSearchFilterPage} from "../pages/chaz/listing-search-filter-page/listing-search-filter-page.component";
-
+import { ListingDetailPage } from "../pages/chaz/listing-detail/listing-detail";
+import { ListingDetailFacts } from "../pages/chaz/listing-detail-facts/listing-detail-facts.component";
+import { ListingAddress } from "../pages/chaz/listing-address/listing-address.component";
+import { ListingMap } from "../pages/chaz/listing-map/listing-map";
+import { ListingSearchFilterPage } from "../pages/chaz/listing-search-filter-page/listing-search-filter-page.component";
+import { ListingActions } from "../pages/chaz/listing-actions/listing-actions.component";
+import {Accordion} from "../pages/chaz/accordion/accordion.component";
+import {AccordionItem} from "../pages/chaz/accordion/accordion-item.component";
+import {AccordionGroup} from "../pages/chaz/accordion/accordion-group.component";
+import {GeoDefinitionPage} from "../pages/chaz/agent/geoDefinitionPage/geo-definition.page";
+import {WaitingForConsumersPage} from "../pages/chaz/agent/waiting-for-consumers-page/waiting-for-consumers.page";
+import {BuyerListItem} from "../pages/chaz/buyer/buyer-list-item/buyer-list-item.component";
 
 @NgModule({
   declarations: [
     ConferenceApp,
-    AboutPage,
-    AccountPage,
-    LoginPage,
-    MapPage,
-    PopoverPage,
-    SchedulePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
-    SignupPage,
-    SpeakerDetailPage,
-    SpeakerListPage,
-    TabsPage,
-    TutorialPage,
-    SupportPage,
     ListingMap,
     ListingSearchPage,
     ListingListItem,
     ListingDetailPage,
     ListingDetailFacts,
     ListingAddress,
-    ListingSearchFilterPage
+    ListingSearchFilterPage,
+    ListingActions,
+    Accordion,
+    AccordionItem,
+    AccordionGroup,
+    GeoDefinitionPage,
+    WaitingForConsumersPage,
+    BuyerListItem
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
-        { component: TabsPage, name: 'TabsPage', segment: 'tabs' },
-        { component: SchedulePage, name: 'Schedule', segment: 'schedule' },
-        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:name' },
-        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
-        { component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList' },
-        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:name' },
-        { component: MapPage, name: 'Map', segment: 'map' },
-        { component: AboutPage, name: 'About', segment: 'about' },
-        { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
-        { component: SupportPage, name: 'SupportPage', segment: 'support' },
-        { component: LoginPage, name: 'LoginPage', segment: 'login' },
-        { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
         { component: ListingSearchPage,name: 'ListingSearchPage', segment:'listingSearch'}
       ]
     }),
@@ -88,28 +57,14 @@ import {ListingSearchFilterPage} from "../pages/chaz/listing-search-filter-page/
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    ConferenceApp,
-    AboutPage,
-    AccountPage,
-    LoginPage,
-    MapPage,
-    PopoverPage,
-    SchedulePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
-    SignupPage,
-    SpeakerDetailPage,
-    SpeakerListPage,
-    TabsPage,
-    TutorialPage,
-    SupportPage,
     ListingSearchPage,
     ListingDetailPage,
-    ListingSearchFilterPage
+    ListingSearchFilterPage,
+    GeoDefinitionPage,
+    WaitingForConsumersPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    UserData,
     InAppBrowser,
     SplashScreen,
     ListingProvider

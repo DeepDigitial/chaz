@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {Listing} from "../models/listing";
+import {Listing} from "../models/listing.model";
 import {NavParams} from "ionic-angular";
 
 @Component({

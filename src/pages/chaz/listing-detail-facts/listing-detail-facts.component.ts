@@ -1,4 +1,4 @@
-import {Listing} from "../models/listing";
+import {Listing} from "../models/listing.model";
 import {Component, Input} from "@angular/core";
 
 @Component({

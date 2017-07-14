@@ -1,0 +1,5 @@
+<ion-item (click)="toggleExpansion()">
+    <ion-icon color="primary" item-right [name]='icon'></ion-icon>
+    <ion-label left>{{title}}</ion-label>
+</ion-item>
+<ng-content *ngIf="!isClosed"></ng-content>
