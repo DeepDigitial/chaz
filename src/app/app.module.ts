@@ -27,6 +27,10 @@ import {GeoDefinitionPage} from "../pages/chaz/agent/geoDefinitionPage/geo-defin
 import {WaitingForConsumersPage} from "../pages/chaz/agent/waiting-for-consumers-page/waiting-for-consumers.page";
 import {BuyerListItem} from "../pages/chaz/buyer/buyer-list-item/buyer-list-item.component";
 
+
+import { ConferenceData } from '../providers/conference-data';
+import {ZillowServiceModule} from "../modules/zillow-service/zillow-service.module";
+
 @NgModule({
   declarations: [
     ConferenceApp,
@@ -48,6 +52,7 @@ import {BuyerListItem} from "../pages/chaz/buyer/buyer-list-item/buyer-list-item
   imports: [
     BrowserModule,
     HttpModule,
+    ZillowServiceModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: ListingSearchPage,name: 'ListingSearchPage', segment:'listingSearch'}
